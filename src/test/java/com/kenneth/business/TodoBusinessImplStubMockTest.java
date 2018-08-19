@@ -36,7 +36,7 @@ public class TodoBusinessImplStubMockTest {
 	
 	@Test
 	public void testRetrieveTodosRelatedToString_usingAMockWithEmptyList() {
-		List<String> todos = Arrays.asList("");
+		List<String> todos = Arrays.asList();
 		when(todoServiceMock.retrieveTodos("Dummy")).thenReturn(todos);
 		List<String> filterTodos = todoBusinessImpl.retrieveTodosRelatedToSpring("Dummy");
 		assertEquals(0, filterTodos.size());
