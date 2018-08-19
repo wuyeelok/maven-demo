@@ -2,6 +2,7 @@ package com.kenneth.business;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.util.Arrays;
@@ -31,7 +32,7 @@ public class TodoBusinessImplStubMockTest {
 		when(todoServiceMock.retrieveTodos("Dummy")).thenReturn(todos);
 		List<String> filterTodos = todoBusinessImpl.retrieveTodosRelatedToSpring("Dummy");
 		assertEquals(2, filterTodos.size());
-		
+		verify(todoServiceMock).retrieveTodos("Dummy");
 	}
 	
 	@Test
@@ -40,7 +41,7 @@ public class TodoBusinessImplStubMockTest {
 		when(todoServiceMock.retrieveTodos("Dummy")).thenReturn(todos);
 		List<String> filterTodos = todoBusinessImpl.retrieveTodosRelatedToSpring("Dummy");
 		assertEquals(0, filterTodos.size());
-		
+		verify(todoServiceMock).retrieveTodos("Dummy");
 	}
 
 }

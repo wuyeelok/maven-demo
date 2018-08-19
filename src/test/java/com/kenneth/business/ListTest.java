@@ -10,8 +10,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class ListTest {
-
+	
 	List listMock;
+	
 	@Before
 	public void setUp() throws Exception {
 		listMock = mock(List.class);
