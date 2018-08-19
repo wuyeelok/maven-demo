@@ -1,9 +1,10 @@
 package com.kenneth;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 public class CalculatorTest {
 
@@ -12,17 +13,16 @@ public class CalculatorTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		cs = new CalculatorService() {
-			public int add(int i, int j) {
-				return 10;
-			}
-		};
+		//	Using Mockito.mock to fake the CalculatorService
+		cs = Mockito.mock(CalculatorService.class);
 		c = new Calculator(cs);
 	}
 	
 
 	@Test
 	public void testAdd() {
+		//	Tell Mockito when calling fake service add(2, 3) always return 5
+		Mockito.when(cs.add(2, 3)).thenReturn(5);		
 		assertEquals(10, c.perform(2, 3));
 	}
 
