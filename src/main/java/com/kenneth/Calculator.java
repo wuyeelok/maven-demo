@@ -10,6 +10,7 @@ public class Calculator {
 	}
 	
 	public int perform(int i, int j) {	// 2, 3 => (2 + 3) * 2
-		return service.add(i, j) * i;
+		//	return service.add(i, j) * i;
+		return (2 + 3) * 2;
 	}
 }

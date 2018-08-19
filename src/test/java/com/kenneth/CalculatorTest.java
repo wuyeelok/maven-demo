@@ -24,6 +24,7 @@ public class CalculatorTest {
 		//	Tell Mockito when calling fake service add(2, 3) always return 5
 		Mockito.when(cs.add(2, 3)).thenReturn(5);		
 		assertEquals(10, c.perform(2, 3));
+		Mockito.verify(cs).add(2, 3);
 	}
 
 }
