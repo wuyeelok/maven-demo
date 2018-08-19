@@ -3,6 +3,7 @@ package com.kenneth.business;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.anyInt;
 
 import java.util.List;
 
@@ -30,6 +31,14 @@ public class ListTest {
 		when(listMock.size()).thenReturn(2).thenReturn(3);
 		assertEquals(2, listMock.size());
 		assertEquals(3, listMock.size());
+	}
+	
+	@Test
+	public void letsMockListsGet() {
+		when(listMock.get(anyInt())).thenReturn("in28Minutes");
+		
+		assertEquals("in28Minutes", listMock.get(0));
+		assertEquals("in28Minutes", listMock.get(1));
 	}
 
 }
