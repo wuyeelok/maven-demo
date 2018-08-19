@@ -8,15 +8,20 @@ import static org.mockito.Mockito.anyInt;
 import java.util.List;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class ListTest {
 	
 	List listMock;
 	
+	@Rule
+    public ExpectedException thrown = ExpectedException.none();
+	
 	@Before
 	public void setUp() throws Exception {
-		listMock = mock(List.class);
+		listMock = mock(List.class);		
 	}
 
 	@Test
@@ -41,4 +46,11 @@ public class ListTest {
 		assertEquals("in28Minutes", listMock.get(1));
 	}
 
+	@Test
+	public void letsMockList_throwAnException() {
+		when(listMock.get(anyInt())).thenThrow(new RuntimeException("Something is wrong"));		
+		thrown.expect(RuntimeException.class);
+		thrown.expectMessage("Something is wrong");
+		listMock.get(3);
+	}
 }
